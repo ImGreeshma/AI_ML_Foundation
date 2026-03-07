@@ -47,10 +47,7 @@ print(person__avg_sale__renamed)
 
 
 # Sort the regional sales results in descending order using sort_values(ascending=False) to identify the top-performing region
-
-
-
-
+print(sales__region__renamed.sort_values(by="Total Sales",ascending=False))
 
 
 # Task 2: Multi-Column Grouping and Multiple Aggregations
