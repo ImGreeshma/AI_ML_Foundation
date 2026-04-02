@@ -21,9 +21,9 @@ data = {
 }
 
 df = pd.DataFrame(data)
-"""
-print(df)
 
+print(df)
+"""
 # Task 1: Inspect the Data
 # Use df.info() to view column data types and non-null counts
 print(df.info())
@@ -41,7 +41,7 @@ print(df.isnull().sum()/len(df)*100)
 # print(df[df.duplicated()])
 print(df.duplicated().sum())
 
-
+"""
 # Task 2: Data Type Conversion
 # Convert age column to numeric using pd.to_numeric(df['age'], errors='coerce')
 df_copy = df.copy()
@@ -119,7 +119,7 @@ print(df_copy.shape)
 # Missing values before and after
 # Duplicates before and after
 # Data types before and after
-"""
+
 df_clean = df.copy()
 print("===========================Verification Report===========================")
 print(f"\nShape of df before Cleaning:\n{df_clean.shape}")
