@@ -37,5 +37,37 @@
 
 **Violation 2: No Rate Limit Handling**
   Problem: No timeout
-  Fix: Add timeout and sleep()
+  Fix: Add timeout and time.sleep(1)
+
+
+```
+import os
+import time
+import requests
+
+# Load API key securely from environment variable
+API_URL = "https://healthstats-api.example.com/records"
+API_KEY = os.getenv("API_KEY")
+
+records = []
+
+for page in range(1, 101):
+    try:
+        response = requests.get(
+            API_URL,
+            params={"page": page, "key": API_KEY},
+            timeout=5
+        )
+        data = response.json()
+        records.extend(data["results"])
+
+        # Respect API rate limits
+        time.sleep(1)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        break
+
+save_to_database(records)
+```
 
